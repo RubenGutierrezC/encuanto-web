@@ -1,14 +1,30 @@
 <script lang="ts">
-	export let name: string;
+  import { Router, Route, Link } from "svelte-navigator";
+  import Home from "./Home.svelte";
+  import History from "./History.svelte";
 </script>
 
-<main class='bg-red-400'>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
-</main>
+<Router>
+  <header>
+    <nav>
+      <Link to="/">Inicio</Link>
+      <Link to="historial">Historial</Link>
+    </nav>
+  </header>
+
+  <main>
+    <Route path="/">
+      <Home />
+    </Route>
+
+    <Route path="historial">
+      <History />
+    </Route>
+  </main>
+</Router>
 
 <style global lang="postcss">
-	@tailwind base;
-	@tailwind components;
-	@tailwind utilities;
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
 </style>
