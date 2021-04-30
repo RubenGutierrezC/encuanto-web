@@ -9,10 +9,11 @@
     <nav>
       <Link to="/">Inicio</Link>
       <Link to="historial">Historial</Link>
+      
     </nav>
   </header>
 
-  <main class='bg-background'>
+  <main>
     <Route path="/">
       <Home />
     </Route>
