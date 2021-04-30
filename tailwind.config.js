@@ -13,4 +13,17 @@ module.exports = {
     ],
     enabled: production // disable purge in dev
   },
+  theme: {
+    extend: {
+      colors: {
+        'background': '#f6f7e9',
+        'mgreen': '#33694f'
+      }
+    }
+  },
+  variants: {
+    extend: {
+      width: ['hover'],
+    }
+  },
 };

@@ -12,7 +12,7 @@
     </nav>
   </header>
 
-  <main>
+  <main class='bg-background'>
     <Route path="/">
       <Home />
     </Route>
