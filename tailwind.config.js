@@ -18,7 +18,8 @@ module.exports = {
       colors: {
         'background': '#f6f7e9',
         'calculator': '#100303',
-        'mgreen': '#33694f'
+        'mgreen': '#33694f',
+        'header': '#3c312f'
       }
     }
   },
