@@ -40,7 +40,6 @@
   }
 
   const selectRate = (id: number) => {
-    console.log(id)
     const idPosition = rateIsSelected(id)
     dispatch('chageSelectedRates', { idPosition, id });
 

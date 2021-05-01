@@ -9,12 +9,9 @@
   const onChangeInput = (evt: EventTarget) => {
     const val = parseFloat(evt.value)
     if (!isNaN(val)) {
-      console.log(tasaCambio === '$')
       if (tasaCambio === '$') {
-        console.log('primer if')
         resultado = val * transformValue
       } else {
-        console.log('segundo if')
         resultado = val / transformValue
       }
       resultado = resultado
