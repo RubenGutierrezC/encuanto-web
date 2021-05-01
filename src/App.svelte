@@ -30,4 +30,8 @@
   @tailwind base;
   @tailwind components;
   @tailwind utilities;
+
+  body {
+    background-color: #f6f7e9;
+  }
 </style>

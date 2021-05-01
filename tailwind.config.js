@@ -17,6 +17,7 @@ module.exports = {
     extend: {
       colors: {
         'background': '#f6f7e9',
+        'calculator': '#100303',
         'mgreen': '#33694f'
       }
     }
@@ -24,6 +25,7 @@ module.exports = {
   variants: {
     extend: {
       width: ['hover'],
+      height: ['responsive', 'hover', 'focus']
     }
   },
 };

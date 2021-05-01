@@ -14,19 +14,9 @@
         datasets: dataSetData,
       },
       options: {
-        plugins: {
-        datalabels: {
-          backgroundColor: function(context) {
-            return context.dataset.backgroundColor;
-          },
-          display: function(context) {
-            var dataset = context.dataset;
-            var value = dataset.data[context.dataIndex];
-            return value > 0;
-          },
-          color: 'white'
+        legend: {
+          display: false
         }
-      }
       },
     });
   }
