@@ -1,8 +1,16 @@
 <script lang='ts'>
+	import { createEventDispatcher } from 'svelte';
+
+	//Declare the dispatch
+	const dispatch = createEventDispatcher();
+
+
   interface Rate {
     id: number
     logo: string
   }
+
+  export let selectedRatesId : number[] = [];
 
   const rates : Rate[] = [
     {
@@ -27,11 +35,25 @@
     },
   ]
 
+  const rateIsSelected = (id: number): number => {
+    return selectedRatesId.findIndex(rateId => rateId === id)
+  }
+
+  const selectRate = (id: number) => {
+    console.log(id)
+    const idPosition = rateIsSelected(id)
+    dispatch('chageSelectedRates', { idPosition, id });
+
+  }
+
 </script>
 
-<div class='absolute right-0 top-2/4 bottom-2/4'>
+<div class='flex flex-col items-end fixed right-0 top-1/4'>
 	{#each rates as rate}
-		<div class='rounded-tl-full rounded-bl-full h-16 w-16 my-4 bg-mgreen flex items-center hover:w-20' >
+		<div
+      class='{ selectedRatesId.some(id => id === rate.id) ? 'w-20' : 'w-16' }   rounded-tl-full rounded-bl-full h-16 my-2 bg-mgreen flex items-center cursor-pointer'
+      on:click="{() => selectRate(rate.id)}"
+    >
       <img  src={rate.logo} alt='rate' width='40px' height='40px' class='rounded-full ml-2' />
     </div>
 	{/each}
