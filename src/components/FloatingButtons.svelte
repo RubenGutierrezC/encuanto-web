@@ -15,23 +15,23 @@
   const rates : Rate[] = [
     {
       id: 1,
-      logo: 'https://miro.medium.com/max/3150/1*R8OzPobghIgjeXH-Qi4JtQ.png'
+      logo: 'https://res.cloudinary.com/deykerg123/image/upload/v1619884590/monitor_ddirkj.png'
     },
     {
       id: 2,
-      logo: 'https://miro.medium.com/max/3150/1*R8OzPobghIgjeXH-Qi4JtQ.png'
+      logo: 'https://res.cloudinary.com/deykerg123/image/upload/v1619884590/dolartoday_whdvvq.png'
     },
     {
       id: 3,
-      logo: 'https://miro.medium.com/max/3150/1*R8OzPobghIgjeXH-Qi4JtQ.png'
+      logo: 'https://res.cloudinary.com/deykerg123/image/upload/v1619884590/bcv_cgelhb.png'
     },
     {
       id: 4,
-      logo: 'https://miro.medium.com/max/3150/1*R8OzPobghIgjeXH-Qi4JtQ.png'
+      logo: 'https://res.cloudinary.com/deykerg123/image/upload/v1619884590/airtm_qgs09j.png'
     },
     {
       id: 5,
-      logo: 'https://miro.medium.com/max/3150/1*R8OzPobghIgjeXH-Qi4JtQ.png'
+      logo: 'https://res.cloudinary.com/deykerg123/image/upload/v1617638302/logo_aggjbx.png'
     },
   ]
 

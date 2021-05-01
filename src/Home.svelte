@@ -22,10 +22,13 @@ const selectRate = (event: any) => {
 
 <div class='w-full h-full'>
   <div class="w-full max-w-5xl mx-auto mt-40">
-    <h1 class='text-8xl text-center'>{ selectedRate.name }</h1>
-    <h3 class='text-3xl text-center'>{ selectedRate.amount} </h3>
+    <h3 class='text-7xl text-center mb-4'>{ selectedRate.amount} </h3>
+    <div class='flex justify-center items-center'>
+      <img class='rounded-full border-mgreen border-4 border-solid w-14 h-14' src={ selectedRate.logo } alt='rate logo'/>
+      <h1 class='text-3xl text-center ml-4 font-bold'>{ selectedRate.name }</h1>
+    </div>
   </div>
 </div>
 
 <FloatingButtons on:chageSelectedRates={selectRate} />
-<Calculator />
+<Calculator bind:transformValue={selectedRate.amount} />

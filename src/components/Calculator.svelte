@@ -1,9 +1,8 @@
 <script lang='ts'>
-import { readable } from "svelte/store";
 
 
   let isOpen = false;
-  let transformValue = 50000
+  export let transformValue = 0
   let tasaCambio = '$'
   let resultado = 0
 
@@ -25,6 +24,7 @@ import { readable } from "svelte/store";
   }
 
   $: tasaCambio === '$' ? resultado = 0 : resultado = 0
+  $: filterResultado = Number.parseFloat(resultado).toFixed(2);
 
 </script>
 
@@ -34,7 +34,9 @@ import { readable } from "svelte/store";
     class='px-5 absolute -top-6 cursor-pointer'
     on:click="{() => isOpen = !isOpen}"
    >
-    <p class='text-4xl text-white bg-calculator rounded-full w-8 h-8 flex justify-center'>^</p>
+    <p class='text-4xl text-white bg-calculator rounded-full w-8 h-8 flex justify-center'>
+      { isOpen ? "v" : '^' }
+    </p>
    </div>
 
    {#if isOpen}
@@ -55,8 +57,8 @@ import { readable } from "svelte/store";
             type='number'
           />
         </div>
-        <p class='text-xl text-white my-7'>{tasaCambio} </p>
-        <p class='text-7xl text-white'>{resultado}</p>
+        <p class='text-xl text-white my-7'> convertir a  {tasaCambio === '$' ? 'BsS' : '$'} </p>
+        <p class='text-7xl text-white'>{filterResultado}</p>
       </div>
     {:else}
       <p class='text-white'>convetir</p>
