@@ -1,20 +1,22 @@
 <script lang="ts">
-  import { Router, Route, Link } from "svelte-navigator";
+  import { Router, Route, Link, createHistory, createMemorySource } from "svelte-navigator";
   import Home from "./Home.svelte";
   import History from "./History.svelte";
+  // const memoryHistory = createHistory(createMemorySource());
+  // const name='encuanto
 </script>
 
-<Router>
+<Router >
   <header>
     <nav>
       <Link to="/">Inicio</Link>
       <Link to="historial">Historial</Link>
-      
+
     </nav>
   </header>
 
   <main>
-    <Route path="/">
+    <Route path='/'>
       <Home />
     </Route>
 

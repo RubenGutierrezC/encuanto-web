@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
+  import { getHistorial } from "./api/http";
   import FloatingButtons from "./components/FloatingButtons.svelte";
 
   let chartInstance : any
@@ -9,15 +10,10 @@
     return new Chart(ctx, {
       type: "line",
       data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-        datasets: dataSet,
+        labels: labelsData,
+        datasets: dataSetData,
       },
       options: {
-        scales: {
-          y: {
-            beginAtZero: true,
-          },
-        },
         plugins: {
         datalabels: {
           backgroundColor: function(context) {
@@ -35,26 +31,26 @@
     });
   }
 
+  let labelsData = []
 
-  onMount(() => chartInstance = createChartInstance());
+  let dataSetData = [];
+
+  const initialize = async () => {
+    try {
+      const { datasets, labels } =  await getHistorial()
+      labelsData = labels
+      dataSetData = datasets
+      chartInstance = createChartInstance()
+      // console.log(data)
+    } catch (error) {
+      console.log()
+    }
+  }
+
+  onMount(initialize);
 
 
-  let dataSet = [
-    {
-      id: 1,
-      label: "# of Votes",
-      data: [12, 19, 3, 5, 2, 3],
-      borderColor: "rgba(0,0,0 1)",
-      borderWidth: 1,
-    },
-    {
-      id: 2,
-      label: "# sexooooooo",
-      data: [12, 80, 4, 5, 6, 3],
-      borderColor: "rgba(255, 159, 64, 1)",
-      borderWidth: 1,
-    },
-  ];
+
 
   let selectedRatesId: number[] = [1];
 
@@ -63,13 +59,13 @@
 
     if (idPosition > -1) {
       selectedRatesId.splice(idPosition, 1);
-      dataSet.splice(0, 1)
+      dataSetData.splice(0, 1)
     } else {
       selectedRatesId.push(id);
     }
 
     selectedRatesId = selectedRatesId;
-    dataSet = dataSet;
+    dataSetData = dataSetData;
     chartInstance.update();
 
   };
